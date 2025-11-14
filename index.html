@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | Lorenzo Corrêa</title>
+    
+    <!-- Script do Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome para ícones --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Fonte Inter do Google Fonts --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Define a fonte Inter como padrão */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Efeito de vidro para os cards */
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7); /* bg-gray-900 com 70% de opacidade */
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 via-blue-950 to-gray-900 text-gray-200 antialiased">
+
+    <!-- Container Principal --><div class="container mx-auto max-w-6xl p-6 md:p-12">
+        
+        <!-- Seção de Biografia (Hero) --><header class="glass-card rounded-2xl shadow-2xl p-8 md:p-12">
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                
+                <!-- Foto --><div class="flex-shrink-0">
+                    <img 
+                        src="perfil.jpeg" 
+                        alt="Foto de Lorenzo Corrêa" 
+                        class="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover border-4 border-blue-500 shadow-lg"
+                        onerror="this.src='https://placehold.co/224x224/374151/E0E7FF?text=Lorenzo'"
+                    >
+                </div>
+                
+                <!-- Texto da Biografia e Links --><div class="flex-1 text-center md:text-left">
+                    <h1 class="text-4xl lg:text-5xl font-bold text-white mb-2">Lorenzo Corrêa</h1>
+                    <h2 class="text-xl lg:text-2xl font-medium text-blue-300 mb-6">Estudante de Análise e Desenvolvimento de Sistemas</h2>
+                    
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        Sou estudante de Análise e Desenvolvimento de Sistemas  na PUCRS. Possuo experiência consolidada em suporte técnico e hardware, adquirida no Exército Brasileiro, INSS e, atualmente, como Técnico de Suporte na Nexo. Combino conhecimento em diagnóstico, configuração e gestão de estoque com uma base crescente em JavaScript, Python, Git e GitHub. Estou ativamente expandindo minhas habilidades em React e MySQL, buscando migrar para a programação e aplicar minha capacidade analítica no desenvolvimento de software.
+                    </p>
+                    
+                    <!-- Links Sociais --><div class="flex justify-center md:justify-start gap-4">
+                        <a href="https://www.linkedin.com/in/lorenzo-corr%C3%AAa/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-5 py-3 rounded-lg transition-transform duration-300 hover:scale-105 shadow-lg">
+                            <i class="fab fa-linkedin text-xl"></i>
+                            LinkedIn
+                        </a>
+                        <a href="https://github.com/LorenzoCorrea" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white font-semibold px-5 py-3 rounded-lg transition-transform duration-300 hover:scale-105 shadow-lg">
+                            <i class="fab fa-github text-xl"></i>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Seção de Habilidades --><section class="mt-12">
+            <h2 class="text-3xl font-bold text-white text-center mb-8">Habilidades & Competências</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                
+                <!-- Card: Hard Skills --><div class="glass-card rounded-2xl shadow-xl p-6 transition-transform duration-300 hover:scale-105 hover:shadow-blue-500/50">
+                    <h3 class="text-2xl font-semibold text-blue-300 mb-5">Qualificações Técnicas</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-300">
+                        <li>Diagnóstico e solução de problemas</li>
+                        <li>Configuração de equipamentos (rastreadores)</li>
+                        <li>Manutenção preventiva e corretiva de hardware</li>
+                        <li>Instalação de componentes e softwares</li>
+                        <li>Atendimento técnico especializado ao cliente</li>
+                        <li>Gerenciamento de estoque e logística de TI</li>
+                    </ul>
+                </div>
+
+                <!-- Card: Linguagens & Ferramentas --><div class="glass-card rounded-2xl shadow-xl p-6 transition-transform duration-300 hover:scale-105 hover:shadow-green-500/50">
+                    <h3 class="text-2xl font-semibold text-green-300 mb-5">Tecnologias & Ferramentas</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-center gap-2"><i class="fab fa-js-square text-yellow-400 text-xl"></i> JavaScript</li>
+                        <li class="flex items-center gap-2"><i class="fab fa-python text-blue-500 text-xl"></i> Python</li>
+                        <li class="flex items-center gap-2"><i class="fab fa-git-alt text-red-600 text-xl"></i> Git</li>
+                        <li class="flex items-center gap-2"><i class="fab fa-github text-purple-400 text-xl"></i> GitHub</li>
+                        <li class="flex items-center gap-2"><i class="fab fa-react text-blue-400 text-xl"></i> React (Foco de estudo atual)</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-database text-blue-600 text-xl"></i> MySQL (Foco de estudo atual)</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-language text-gray-400 text-xl"></i> Inglês (Intermediário)</li>
+                    </ul>
+                </div>
+                
+                <!-- Card: Soft Skills --><div class="glass-card rounded-2xl shadow-xl p-6 transition-transform duration-300 hover:scale-105 hover:shadow-yellow-500/50">
+                    <h3 class="text-2xl font-semibold text-yellow-300 mb-5">Principais Qualidades</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-300">
+                        <li>Proatividade e Foco em Resolução de Problemas</li>
+                        <li>Adaptabilidade (Ambientes militar, governamental, corporativo)</li>
+                        <li>Organização e Gestão de Processos</li>
+                        <li>Disciplina e Responsabilidade</li>
+                        <li>Perfil "Mão na Massa" (Hardware e Software)</li>
+                        <li>Comunicação Técnica Clara</li>
+                    </ul>
+                </div>
+                
+            </div>
+        </section>
+
+    </div>
+    
+    <!-- Rodapé --><footer class="text-center text-gray-400 p-6 mt-8">
+        <p>&copy; 2024 Lorenzo Corrêa. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
