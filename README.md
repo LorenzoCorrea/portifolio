@@ -9,8 +9,9 @@ Este projeto serve como meu hub central para apresentar minha transição de car
 
 ## 📸 Preview
 
-*(Adicione um print da tela do seu site aqui, salve como preview.png na pasta do projeto)*
-`![Preview do Site](./preview.png)`
+<img width="1905" height="910" alt="Screenshot_4" src="https://github.com/user-attachments/assets/bf7672b4-a28e-4b88-909f-94e7205c2e33" />
+<img width="1907" height="916" alt="Screenshot_5" src="https://github.com/user-attachments/assets/c756e394-482f-4efb-a29b-390a63fe947a" />
+
 
 ---
 
