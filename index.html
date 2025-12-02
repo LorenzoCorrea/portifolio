@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
+<html lang="pt-BR" class="dark"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio | Lorenzo Corrêa</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Permite alternar manualmente
+        }
+    </script>
+
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -15,44 +20,51 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Define a fonte Inter como padrão */
-        body {
-            font-family: 'Inter', sans-serif;
-        }
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s, color 0.3s; }
         
-        /* Fundo Tech Grid (Papel Milimetrado Escuro) */
-        .bg-grid {
-            background-color: #111827; /* Fundo base */
+        /* Grid no Modo Escuro (Linhas Claras) */
+        .dark .bg-grid {
+            background-color: #111827; 
             background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
                               linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-            background-size: 40px 40px; /* Tamanho dos quadrados */
+            background-size: 40px 40px;
         }
 
-        /* Efeito de vidro para os cards */
-        .glass-card {
+        /* Grid no Modo Claro (Linhas Escuras) */
+        .bg-grid {
+            background-color: #f3f4f6; 
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Vidro no Modo Escuro */
+        .dark .glass-card {
             background: rgba(17, 24, 39, 0.8); 
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(59, 130, 246, 0.1); /* Borda azul bem sutil */
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(59, 130, 246, 0.1);
         }
 
-        /* Animação de digitação simples */
-        .typing-cursor {
-            display: inline-block;
-            width: 10px;
-            height: 20px;
-            background-color: #60a5fa;
-            animation: blink 1s infinite;
-            vertical-align: middle;
-            margin-left: 5px;
+        /* Vidro no Modo Claro */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7); 
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+
+        /* Cursor piscando */
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s step-start infinite;
         }
+        @keyframes blink { 50% { opacity: 0; } }
     </style>
 </head>
-<body class="min-h-screen bg-grid text-gray-200 antialiased selection:bg-blue-500 selection:text-white">
+<body class="min-h-screen bg-grid text-gray-800 dark:text-gray-200 antialiased selection:bg-blue-500 selection:text-white">
+
+    <button onclick="toggleTheme()" class="fixed top-4 right-4 z-50 p-3 rounded-full shadow-lg glass-card hover:scale-110 transition-transform text-blue-600 dark:text-yellow-400">
+        <i class="fas fa-moon dark:hidden"></i> <i class="fas fa-sun hidden dark:block"></i> </button>
 
     <div class="container mx-auto max-w-6xl p-6 md:p-12">
         
@@ -64,19 +76,19 @@
                     <img 
                         src="perfil.jpeg" 
                         alt="Foto de Lorenzo Corrêa" 
-                        class="relative w-48 h-48 md:w-56 md:h-56 rounded-full object-cover border-4 border-gray-900 shadow-2xl"
+                        class="relative w-48 h-48 md:w-56 md:h-56 rounded-full object-cover border-4 border-white dark:border-gray-900 shadow-2xl"
                         onerror="this.src='https://placehold.co/224x224/1f2937/E0E7FF?text=LC'"
                     >
                 </div>
                 
                 <div class="flex-1 text-center md:text-left">
-                    <h1 class="text-4xl lg:text-5xl font-bold text-white mb-2 tracking-tight">Lorenzo Corrêa</h1>
+                    <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-2 tracking-tight">Lorenzo Corrêa</h1>
                     
-                    <div class="mb-6 font-mono text-blue-400 text-lg lg:text-xl bg-gray-900/50 inline-block px-3 py-1 rounded border border-blue-500/30">
-                        > Backend_Dev & Data_Analyst<span class="typing-cursor"></span>
+                    <div class="mb-6 font-mono text-blue-600 dark:text-blue-400 text-lg lg:text-xl bg-gray-100 dark:bg-gray-900/50 inline-block px-3 py-1 rounded border border-blue-200 dark:border-blue-500/30">
+                        <span id="typewriter"></span><span class="typing-cursor text-blue-500"></span>
                     </div>
                     
-                    <p class="text-gray-300 leading-relaxed mb-8 text-lg">
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-8 text-lg">
                         Estudante de ADS focado em <strong>Engenharia de Dados e Back-end</strong>. 
                         Transformo dados brutos em inteligência e automatizo processos complexos. 
                         Dedico meus estudos ao domínio de <strong>Python, SQL e Modelagem de Dados</strong>, 
@@ -87,7 +99,7 @@
                         <a href="https://www.linkedin.com/in/lorenzo-correa-rs/" target="_blank" class="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-medium px-6 py-3 rounded-lg transition-all hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-1">
                             <i class="fab fa-linkedin text-xl"></i> LinkedIn
                         </a>
-                        <a href="https://github.com/LorenzoCorrea" target="_blank" class="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white font-medium px-6 py-3 rounded-lg border border-gray-700 transition-all hover:shadow-lg hover:-translate-y-1">
+                        <a href="https://github.com/LorenzoCorrea" target="_blank" class="flex items-center gap-2 bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-medium px-6 py-3 rounded-lg border border-gray-300 dark:border-gray-700 transition-all hover:shadow-lg hover:-translate-y-1">
                             <i class="fab fa-github text-xl"></i> GitHub
                         </a>
                     </div>
@@ -96,47 +108,47 @@
         </header>
 
         <section class="mb-12">
-            <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
                 <i class="fas fa-code-branch text-blue-500"></i> Projetos Recentes
             </h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                <div class="glass-card rounded-xl p-6 hover:border-blue-500 transition-all group">
+                <div class="glass-card rounded-xl p-6 hover:border-blue-500 transition-all group border-l-4 border-l-yellow-500 dark:border-l-yellow-600">
                     <div class="flex justify-between items-start mb-4">
-                        <div class="p-3 bg-blue-900/30 rounded-lg text-blue-400">
+                        <div class="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-blue-600 dark:text-blue-400">
                             <i class="fas fa-robot text-2xl"></i>
                         </div>
-                        <a href="https://github.com/LorenzoCorrea" class="text-xs font-mono text-gray-400 hover:text-white border border-gray-700 hover:border-gray-500 px-3 py-1 rounded-full transition-colors">
-                            Ver Repo <i class="fas fa-external-link-alt ml-1"></i>
-                        </a>
+                        <span class="text-xs font-mono text-yellow-600 dark:text-yellow-400 bg-yellow-100 dark:bg-yellow-900/20 px-3 py-1 rounded-full border border-yellow-200 dark:border-yellow-900 cursor-not-allowed">
+                            <i class="fas fa-tools"></i> Em construção
+                        </span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Bot de Automação de E-mails</h3>
-                    <p class="text-gray-400 text-sm mb-4">
-                        Script desenvolvido em Python para automatizar o envio de relatórios e comunicados em massa, utilizando bibliotecas nativas de SMTP.
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Bot de Automação de E-mails</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                        Script desenvolvido em Python para automatizar o envio de relatórios e comunicados em massa. (Código sendo refatorado).
                     </p>
                     <div class="flex gap-2 mt-auto">
-                        <span class="text-xs font-mono bg-blue-900/50 text-blue-200 px-2 py-1 rounded border border-blue-500/30">Python</span>
-                        <span class="text-xs font-mono bg-yellow-900/50 text-yellow-200 px-2 py-1 rounded border border-yellow-500/30">Automação</span>
+                        <span class="text-xs font-mono bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-200 px-2 py-1 rounded">Python</span>
+                        <span class="text-xs font-mono bg-yellow-100 dark:bg-yellow-900/50 text-yellow-700 dark:text-yellow-200 px-2 py-1 rounded">Automação</span>
                     </div>
                 </div>
 
                 <div class="glass-card rounded-xl p-6 hover:border-green-500 transition-all group">
                     <div class="flex justify-between items-start mb-4">
-                        <div class="p-3 bg-green-900/30 rounded-lg text-green-400">
+                        <div class="p-3 bg-green-100 dark:bg-green-900/30 rounded-lg text-green-600 dark:text-green-400">
                             <i class="fas fa-chart-line text-2xl"></i>
                         </div>
-                        <span class="text-xs font-mono text-green-400 bg-green-900/20 px-3 py-1 rounded-full border border-green-900">
+                        <span class="text-xs font-mono text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/20 px-3 py-1 rounded-full border border-green-200 dark:border-green-900">
                             Em breve
                         </span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">Dashboard de Análise de Dados</h3>
-                    <p class="text-gray-400 text-sm mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">Dashboard de Análise de Dados</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
                         Projeto de ETL e visualização de dados utilizando Pandas para tratamento e geração de insights de performance.
                     </p>
                     <div class="flex gap-2 mt-auto">
-                        <span class="text-xs font-mono bg-green-900/50 text-green-200 px-2 py-1 rounded border border-green-500/30">Pandas</span>
-                        <span class="text-xs font-mono bg-gray-700 text-gray-300 px-2 py-1 rounded border border-gray-600">Data Science</span>
+                        <span class="text-xs font-mono bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-200 px-2 py-1 rounded">Pandas</span>
+                        <span class="text-xs font-mono bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded">Data Science</span>
                     </div>
                 </div>
 
@@ -144,15 +156,15 @@
         </section>
         
         <section>
-            <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
                 <i class="fas fa-layer-group text-blue-500"></i> Stack Tecnológico
             </h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
-                <div class="glass-card rounded-xl p-6 hover:shadow-lg hover:shadow-blue-900/20 transition-all">
-                    <h3 class="text-lg font-bold text-blue-300 mb-4 border-b border-gray-700 pb-2">Competências Técnicas</h3>
-                    <ul class="space-y-3 text-gray-300 text-sm">
+                <div class="glass-card rounded-xl p-6 hover:shadow-lg transition-all">
+                    <h3 class="text-lg font-bold text-blue-600 dark:text-blue-300 mb-4 border-b border-gray-300 dark:border-gray-700 pb-2">Competências Técnicas</h3>
+                    <ul class="space-y-3 text-gray-700 dark:text-gray-300 text-sm">
                         <li class="flex items-start gap-2"><i class="fas fa-check text-blue-500 mt-1"></i> <span>Lógica de Programação & Algoritmos</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-check text-blue-500 mt-1"></i> <span>ETL & Análise de Dados</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-check text-blue-500 mt-1"></i> <span>Modelagem SQL Relacional</span></li>
@@ -162,35 +174,35 @@
                     </ul>
                 </div>
 
-                <div class="glass-card rounded-xl p-6 hover:shadow-lg hover:shadow-green-900/20 transition-all">
-                    <h3 class="text-lg font-bold text-green-300 mb-4 border-b border-gray-700 pb-2">Ferramentas & Linguagens</h3>
+                <div class="glass-card rounded-xl p-6 hover:shadow-lg transition-all">
+                    <h3 class="text-lg font-bold text-green-600 dark:text-green-300 mb-4 border-b border-gray-300 dark:border-gray-700 pb-2">Ferramentas & Linguagens</h3>
                     <div class="grid grid-cols-2 gap-3">
-                        <div class="bg-gray-800/50 p-2 rounded flex items-center gap-2 border border-gray-700">
-                            <i class="fab fa-python text-blue-400 text-lg"></i> <span class="text-sm">Python</span>
+                        <div class="bg-gray-100 dark:bg-gray-800/50 p-2 rounded flex items-center gap-2 border border-gray-200 dark:border-gray-700">
+                            <i class="fab fa-python text-blue-500 text-lg"></i> <span class="text-sm dark:text-gray-200">Python</span>
                         </div>
-                        <div class="bg-gray-800/50 p-2 rounded flex items-center gap-2 border border-gray-700">
-                            <i class="fas fa-database text-blue-600 text-lg"></i> <span class="text-sm">SQL</span>
+                        <div class="bg-gray-100 dark:bg-gray-800/50 p-2 rounded flex items-center gap-2 border border-gray-200 dark:border-gray-700">
+                            <i class="fas fa-database text-blue-600 text-lg"></i> <span class="text-sm dark:text-gray-200">SQL</span>
                         </div>
-                        <div class="bg-gray-800/50 p-2 rounded flex items-center gap-2 border border-gray-700">
-                            <i class="fab fa-node-js text-green-500 text-lg"></i> <span class="text-sm">Node.js</span>
+                        <div class="bg-gray-100 dark:bg-gray-800/50 p-2 rounded flex items-center gap-2 border border-gray-200 dark:border-gray-700">
+                            <i class="fab fa-node-js text-green-500 text-lg"></i> <span class="text-sm dark:text-gray-200">Node.js</span>
                         </div>
-                        <div class="bg-gray-800/50 p-2 rounded flex items-center gap-2 border border-gray-700">
-                            <i class="fab fa-git-alt text-red-500 text-lg"></i> <span class="text-sm">Git</span>
+                        <div class="bg-gray-100 dark:bg-gray-800/50 p-2 rounded flex items-center gap-2 border border-gray-200 dark:border-gray-700">
+                            <i class="fab fa-git-alt text-red-500 text-lg"></i> <span class="text-sm dark:text-gray-200">Git</span>
                         </div>
-                        <div class="bg-gray-800/50 p-2 rounded flex items-center gap-2 border border-gray-700 opacity-75">
-                            <i class="fab fa-js text-yellow-400 text-lg"></i> <span class="text-sm">JavaScript</span>
+                        <div class="bg-gray-100 dark:bg-gray-800/50 p-2 rounded flex items-center gap-2 border border-gray-200 dark:border-gray-700 opacity-75">
+                            <i class="fab fa-js text-yellow-500 text-lg"></i> <span class="text-sm dark:text-gray-200">JavaScript</span>
                         </div>
-                        <div class="bg-gray-800/50 p-2 rounded flex items-center gap-2 border border-gray-700 opacity-75">
-                            <i class="fab fa-react text-cyan-400 text-lg"></i> <span class="text-sm">React</span>
+                        <div class="bg-gray-100 dark:bg-gray-800/50 p-2 rounded flex items-center gap-2 border border-gray-200 dark:border-gray-700 opacity-75">
+                            <i class="fab fa-react text-cyan-500 text-lg"></i> <span class="text-sm dark:text-gray-200">React</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="glass-card rounded-xl p-6 hover:shadow-lg hover:shadow-yellow-900/20 transition-all">
-                    <h3 class="text-lg font-bold text-yellow-300 mb-4 border-b border-gray-700 pb-2">Perfil Profissional</h3>
-                    <ul class="space-y-3 text-gray-300 text-sm">
+                <div class="glass-card rounded-xl p-6 hover:shadow-lg transition-all">
+                    <h3 class="text-lg font-bold text-yellow-600 dark:text-yellow-300 mb-4 border-b border-gray-300 dark:border-gray-700 pb-2">Perfil Profissional</h3>
+                    <ul class="space-y-3 text-gray-700 dark:text-gray-300 text-sm">
                         <li class="flex items-start gap-2"><i class="fas fa-search text-yellow-500 mt-1"></i> <span>Pensamento Analítico</span></li>
-                        <li class="flex items-start gap-2"><i class="fas fa-tools text-yellow-500 mt-1"></i> <span>Troubleshooting (Suporte)</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-tools text-yellow-500 mt-1"></i> <span>Suporte Técnico</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-book-open text-yellow-500 mt-1"></i> <span>Lifelong Learning</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-eye text-yellow-500 mt-1"></i> <span>Atenção aos Detalhes</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-briefcase text-yellow-500 mt-1"></i> <span>Visão de Negócio</span></li>
@@ -202,9 +214,43 @@
 
     </div>
     
-    <footer class="text-center text-gray-500 py-8 text-sm border-t border-gray-800 mt-12 bg-gray-900/50 backdrop-blur">
+    <footer class="text-center text-gray-500 py-8 text-sm border-t border-gray-200 dark:border-gray-800 mt-12 bg-white/50 dark:bg-gray-900/50 backdrop-blur">
         <p>&copy; 2025 Lorenzo Corrêa. Construído com <i class="fas fa-code text-blue-500 mx-1"></i> e Dados.</p>
     </footer>
 
+    <script>
+        // --- 1. Lógica do Typewriter (Digitação) ---
+        const textToType = "> Backend_Dev & Data_Analyst";
+        const typeWriterElement = document.getElementById('typewriter');
+        let i = 0;
+
+        function typeWriter() {
+            if (i < textToType.length) {
+                typeWriterElement.innerHTML += textToType.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100); // Velocidade da digitação (100ms)
+            }
+        }
+        
+        // Inicia a digitação após 1 segundo que a página carregar
+        setTimeout(typeWriter, 1000);
+
+        // --- 2. Lógica do Modo Escuro/Claro ---
+        function toggleTheme() {
+            const html = document.documentElement;
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Verifica a preferência salva do usuário ao carregar
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
 </body>
 </html>
