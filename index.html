@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="dark"> <head>
+<html lang="pt-BR" class="dark">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio | Lorenzo Corrêa</title>
@@ -7,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class', // Permite alternar manualmente
+            darkMode: 'class',
         }
     </script>
 
@@ -22,7 +23,6 @@
     <style>
         body { font-family: 'Inter', sans-serif; transition: background-color 0.3s, color 0.3s; }
         
-        /* Grid no Modo Escuro (Linhas Claras) */
         .dark .bg-grid {
             background-color: #111827; 
             background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
@@ -30,7 +30,6 @@
             background-size: 40px 40px;
         }
 
-        /* Grid no Modo Claro (Linhas Escuras) */
         .bg-grid {
             background-color: #f3f4f6; 
             background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
@@ -38,14 +37,12 @@
             background-size: 40px 40px;
         }
 
-        /* Vidro no Modo Escuro */
         .dark .glass-card {
             background: rgba(17, 24, 39, 0.8); 
             backdrop-filter: blur(12px);
             border: 1px solid rgba(59, 130, 246, 0.1);
         }
 
-        /* Vidro no Modo Claro */
         .glass-card {
             background: rgba(255, 255, 255, 0.7); 
             backdrop-filter: blur(12px);
@@ -53,7 +50,6 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
-        /* Cursor piscando */
         .typing-cursor::after {
             content: '|';
             animation: blink 1s step-start infinite;
@@ -64,13 +60,14 @@
 <body class="min-h-screen bg-grid text-gray-800 dark:text-gray-200 antialiased selection:bg-blue-500 selection:text-white">
 
     <button onclick="toggleTheme()" class="fixed top-4 right-4 z-50 p-3 rounded-full shadow-lg glass-card hover:scale-110 transition-transform text-blue-600 dark:text-yellow-400">
-        <i class="fas fa-moon dark:hidden"></i> <i class="fas fa-sun hidden dark:block"></i> </button>
+        <i class="fas fa-moon dark:hidden"></i>
+        <i class="fas fa-sun hidden dark:block"></i>
+    </button>
 
     <div class="container mx-auto max-w-6xl p-6 md:p-12">
         
         <header class="glass-card rounded-2xl shadow-2xl p-8 md:p-12 mb-12 border-t-4 border-blue-600">
             <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-                
                 <div class="flex-shrink-0 relative group">
                     <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
                     <img 
@@ -83,18 +80,15 @@
                 
                 <div class="flex-1 text-center md:text-left">
                     <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-2 tracking-tight">Lorenzo Corrêa</h1>
-                    
                     <div class="mb-6 font-mono text-blue-600 dark:text-blue-400 text-lg lg:text-xl bg-gray-100 dark:bg-gray-900/50 inline-block px-3 py-1 rounded border border-blue-200 dark:border-blue-500/30">
                         <span id="typewriter"></span><span class="typing-cursor text-blue-500"></span>
                     </div>
-                    
                     <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-8 text-lg">
                         Estudante de ADS focado em <strong>Engenharia de Dados e Back-end</strong>. 
                         Transformo dados brutos em inteligência e automatizo processos complexos. 
                         Dedico meus estudos ao domínio de <strong>Python, SQL e Modelagem de Dados</strong>, 
                         unindo a lógica de programação à eficiência operacional.
                     </p>
-                    
                     <div class="flex flex-wrap justify-center md:justify-start gap-4">
                         <a href="https://www.linkedin.com/in/lorenzo-correa-rs/" target="_blank" class="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-medium px-6 py-3 rounded-lg transition-all hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-1">
                             <i class="fab fa-linkedin text-xl"></i> LinkedIn
@@ -114,16 +108,16 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                <div class="glass-card rounded-xl p-6 hover:border-blue-500 transition-all group border-l-4 border-l-yellow-500 dark:border-l-yellow-600">
+                <div class="glass-card rounded-xl p-6 hover:border-yellow-500 transition-all group">
                     <div class="flex justify-between items-start mb-4">
                         <div class="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-blue-600 dark:text-blue-400">
                             <i class="fas fa-robot text-2xl"></i>
                         </div>
                         <span class="text-xs font-mono text-yellow-600 dark:text-yellow-400 bg-yellow-100 dark:bg-yellow-900/20 px-3 py-1 rounded-full border border-yellow-200 dark:border-yellow-900 cursor-not-allowed">
-                            <i class="fas fa-tools"></i> Em construção
+                            <i class="fas fa-tools"></i> Em reconstrução
                         </span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Bot de Automação de E-mails</h3>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-yellow-500 transition-colors">Bot de Automação de E-mails</h3>
                     <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
                         Script desenvolvido em Python para automatizar o envio de relatórios e comunicados em massa. (Código sendo refatorado).
                     </p>
@@ -162,7 +156,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
-                <div class="glass-card rounded-xl p-6 hover:shadow-lg transition-all">
+                <div class="glass-card rounded-xl p-6 hover:shadow-lg hover:shadow-blue-500/10 hover:-translate-y-1 transition-all">
                     <h3 class="text-lg font-bold text-blue-600 dark:text-blue-300 mb-4 border-b border-gray-300 dark:border-gray-700 pb-2">Competências Técnicas</h3>
                     <ul class="space-y-3 text-gray-700 dark:text-gray-300 text-sm">
                         <li class="flex items-start gap-2"><i class="fas fa-check text-blue-500 mt-1"></i> <span>Lógica de Programação & Algoritmos</span></li>
@@ -174,7 +168,7 @@
                     </ul>
                 </div>
 
-                <div class="glass-card rounded-xl p-6 hover:shadow-lg transition-all">
+                <div class="glass-card rounded-xl p-6 hover:shadow-lg hover:shadow-green-500/10 hover:-translate-y-1 transition-all">
                     <h3 class="text-lg font-bold text-green-600 dark:text-green-300 mb-4 border-b border-gray-300 dark:border-gray-700 pb-2">Ferramentas & Linguagens</h3>
                     <div class="grid grid-cols-2 gap-3">
                         <div class="bg-gray-100 dark:bg-gray-800/50 p-2 rounded flex items-center gap-2 border border-gray-200 dark:border-gray-700">
@@ -198,11 +192,11 @@
                     </div>
                 </div>
                 
-                <div class="glass-card rounded-xl p-6 hover:shadow-lg transition-all">
+                <div class="glass-card rounded-xl p-6 hover:shadow-lg hover:shadow-yellow-500/10 hover:-translate-y-1 transition-all">
                     <h3 class="text-lg font-bold text-yellow-600 dark:text-yellow-300 mb-4 border-b border-gray-300 dark:border-gray-700 pb-2">Perfil Profissional</h3>
                     <ul class="space-y-3 text-gray-700 dark:text-gray-300 text-sm">
                         <li class="flex items-start gap-2"><i class="fas fa-search text-yellow-500 mt-1"></i> <span>Pensamento Analítico</span></li>
-                        <li class="flex items-start gap-2"><i class="fas fa-tools text-yellow-500 mt-1"></i> <span>Suporte Técnico</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-tools text-yellow-500 mt-1"></i> <span>Troubleshooting (Suporte)</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-book-open text-yellow-500 mt-1"></i> <span>Lifelong Learning</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-eye text-yellow-500 mt-1"></i> <span>Atenção aos Detalhes</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-briefcase text-yellow-500 mt-1"></i> <span>Visão de Negócio</span></li>
@@ -219,7 +213,6 @@
     </footer>
 
     <script>
-        // --- 1. Lógica do Typewriter (Digitação) ---
         const textToType = "> Backend_Dev & Data_Analyst";
         const typeWriterElement = document.getElementById('typewriter');
         let i = 0;
@@ -228,14 +221,12 @@
             if (i < textToType.length) {
                 typeWriterElement.innerHTML += textToType.charAt(i);
                 i++;
-                setTimeout(typeWriter, 100); // Velocidade da digitação (100ms)
+                setTimeout(typeWriter, 100);
             }
         }
         
-        // Inicia a digitação após 1 segundo que a página carregar
         setTimeout(typeWriter, 1000);
 
-        // --- 2. Lógica do Modo Escuro/Claro ---
         function toggleTheme() {
             const html = document.documentElement;
             if (html.classList.contains('dark')) {
@@ -247,7 +238,6 @@
             }
         }
 
-        // Verifica a preferência salva do usuário ao carregar
         if (localStorage.getItem('theme') === 'light') {
             document.documentElement.classList.remove('dark');
         }
