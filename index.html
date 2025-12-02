@@ -12,101 +12,188 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
         /* Define a fonte Inter como padrão */
         body {
             font-family: 'Inter', sans-serif;
         }
+        
+        /* Fundo Tech Grid (Papel Milimetrado Escuro) */
+        .bg-grid {
+            background-color: #111827; /* Fundo base */
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px; /* Tamanho dos quadrados */
+        }
+
         /* Efeito de vidro para os cards */
         .glass-card {
-            background: rgba(17, 24, 39, 0.7); /* bg-gray-900 com 70% de opacidade */
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(17, 24, 39, 0.8); 
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(59, 130, 246, 0.1); /* Borda azul bem sutil */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Animação de digitação simples */
+        .typing-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: #60a5fa;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
     </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-gray-900 via-blue-950 to-gray-900 text-gray-200 antialiased">
+<body class="min-h-screen bg-grid text-gray-200 antialiased selection:bg-blue-500 selection:text-white">
 
     <div class="container mx-auto max-w-6xl p-6 md:p-12">
         
-        <header class="glass-card rounded-2xl shadow-2xl p-8 md:p-12">
+        <header class="glass-card rounded-2xl shadow-2xl p-8 md:p-12 mb-12 border-t-4 border-blue-600">
             <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
                 
-                <div class="flex-shrink-0">
+                <div class="flex-shrink-0 relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
                     <img 
                         src="perfil.jpeg" 
                         alt="Foto de Lorenzo Corrêa" 
-                        class="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover border-4 border-blue-500 shadow-lg"
-                        onerror="this.src='https://placehold.co/224x224/374151/E0E7FF?text=Lorenzo'"
+                        class="relative w-48 h-48 md:w-56 md:h-56 rounded-full object-cover border-4 border-gray-900 shadow-2xl"
+                        onerror="this.src='https://placehold.co/224x224/1f2937/E0E7FF?text=LC'"
                     >
                 </div>
                 
                 <div class="flex-1 text-center md:text-left">
-                    <h1 class="text-4xl lg:text-5xl font-bold text-white mb-2">Lorenzo Corrêa</h1>
-                    <h2 class="text-xl lg:text-2xl font-medium text-blue-300 mb-6">Estudante de Análise e Desenvolvimento de Sistemas</h2>
+                    <h1 class="text-4xl lg:text-5xl font-bold text-white mb-2 tracking-tight">Lorenzo Corrêa</h1>
                     
-                    <p class="text-gray-300 leading-relaxed mb-6">
-                        Estudante de Análise e Desenvolvimento de Sistemas focado em <strong>Engenharia de Dados e Back-end</strong>. 
-                        Busco criar soluções que transformam dados brutos em informações valiosas e sistemas eficientes. 
-                        Dedico meus estudos ao domínio de <strong>Python, SQL e Modelagem de Dados</strong>, unindo lógica de programação 
-                        com a capacidade de automatizar processos e resolver problemas de negócio.
+                    <div class="mb-6 font-mono text-blue-400 text-lg lg:text-xl bg-gray-900/50 inline-block px-3 py-1 rounded border border-blue-500/30">
+                        > Backend_Dev & Data_Analyst<span class="typing-cursor"></span>
+                    </div>
+                    
+                    <p class="text-gray-300 leading-relaxed mb-8 text-lg">
+                        Estudante de ADS focado em <strong>Engenharia de Dados e Back-end</strong>. 
+                        Transformo dados brutos em inteligência e automatizo processos complexos. 
+                        Dedico meus estudos ao domínio de <strong>Python, SQL e Modelagem de Dados</strong>, 
+                        unindo a lógica de programação à eficiência operacional.
                     </p>
                     
-                    <div class="flex justify-center md:justify-start gap-4">
-                        <a href="https://www.linkedin.com/in/lorenzo-correa-rs/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-5 py-3 rounded-lg transition-transform duration-300 hover:scale-105 shadow-lg">
-                            <i class="fab fa-linkedin text-xl"></i>
-                            LinkedIn
+                    <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                        <a href="https://www.linkedin.com/in/lorenzo-correa-rs/" target="_blank" class="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-medium px-6 py-3 rounded-lg transition-all hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-1">
+                            <i class="fab fa-linkedin text-xl"></i> LinkedIn
                         </a>
-                        <a href="https://github.com/LorenzoCorrea" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white font-semibold px-5 py-3 rounded-lg transition-transform duration-300 hover:scale-105 shadow-lg">
-                            <i class="fab fa-github text-xl"></i>
-                            GitHub
+                        <a href="https://github.com/LorenzoCorrea" target="_blank" class="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white font-medium px-6 py-3 rounded-lg border border-gray-700 transition-all hover:shadow-lg hover:-translate-y-1">
+                            <i class="fab fa-github text-xl"></i> GitHub
                         </a>
                     </div>
                 </div>
             </div>
         </header>
-        
-        <section class="mt-12">
-            <h2 class="text-3xl font-bold text-white text-center mb-8">Habilidades & Competências</h2>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                <i class="fas fa-code-branch text-blue-500"></i> Projetos Recentes
+            </h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                <div class="glass-card rounded-2xl shadow-xl p-6 transition-transform duration-300 hover:scale-105 hover:shadow-blue-500/50">
-                    <h3 class="text-2xl font-semibold text-blue-300 mb-5">Qualificações Técnicas</h3>
-                    <ul class="list-disc list-inside space-y-2 text-gray-300">
-                        <li>Lógica de Programação e Algoritmos</li>
-                        <li>Manipulação e Análise de Dados (ETL)</li>
-                        <li>Modelagem de Banco de Dados (SQL)</li>
-                        <li>Desenvolvimento de APIs RESTful</li>
-                        <li>Automação de Scripts (Python)</li>
-                        <li>Versionamento de Código (Git/GitHub)</li>
+                <div class="glass-card rounded-xl p-6 hover:border-blue-500 transition-all group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-blue-900/30 rounded-lg text-blue-400">
+                            <i class="fas fa-robot text-2xl"></i>
+                        </div>
+                        <a href="https://github.com/LorenzoCorrea" class="text-xs font-mono text-gray-400 hover:text-white border border-gray-700 hover:border-gray-500 px-3 py-1 rounded-full transition-colors">
+                            Ver Repo <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Bot de Automação de E-mails</h3>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Script desenvolvido em Python para automatizar o envio de relatórios e comunicados em massa, utilizando bibliotecas nativas de SMTP.
+                    </p>
+                    <div class="flex gap-2 mt-auto">
+                        <span class="text-xs font-mono bg-blue-900/50 text-blue-200 px-2 py-1 rounded border border-blue-500/30">Python</span>
+                        <span class="text-xs font-mono bg-yellow-900/50 text-yellow-200 px-2 py-1 rounded border border-yellow-500/30">Automação</span>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl p-6 hover:border-green-500 transition-all group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-green-900/30 rounded-lg text-green-400">
+                            <i class="fas fa-chart-line text-2xl"></i>
+                        </div>
+                        <span class="text-xs font-mono text-green-400 bg-green-900/20 px-3 py-1 rounded-full border border-green-900">
+                            Em breve
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">Dashboard de Análise de Dados</h3>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Projeto de ETL e visualização de dados utilizando Pandas para tratamento e geração de insights de performance.
+                    </p>
+                    <div class="flex gap-2 mt-auto">
+                        <span class="text-xs font-mono bg-green-900/50 text-green-200 px-2 py-1 rounded border border-green-500/30">Pandas</span>
+                        <span class="text-xs font-mono bg-gray-700 text-gray-300 px-2 py-1 rounded border border-gray-600">Data Science</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        
+        <section>
+            <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                <i class="fas fa-layer-group text-blue-500"></i> Stack Tecnológico
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="glass-card rounded-xl p-6 hover:shadow-lg hover:shadow-blue-900/20 transition-all">
+                    <h3 class="text-lg font-bold text-blue-300 mb-4 border-b border-gray-700 pb-2">Competências Técnicas</h3>
+                    <ul class="space-y-3 text-gray-300 text-sm">
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-blue-500 mt-1"></i> <span>Lógica de Programação & Algoritmos</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-blue-500 mt-1"></i> <span>ETL & Análise de Dados</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-blue-500 mt-1"></i> <span>Modelagem SQL Relacional</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-blue-500 mt-1"></i> <span>APIs RESTful (Backend)</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-blue-500 mt-1"></i> <span>Automação de Scripts</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-blue-500 mt-1"></i> <span>Git & GitHub Flow</span></li>
                     </ul>
                 </div>
 
-                <div class="glass-card rounded-2xl shadow-xl p-6 transition-transform duration-300 hover:scale-105 hover:shadow-green-500/50">
-                    <h3 class="text-2xl font-semibold text-green-300 mb-5">Tecnologias & Ferramentas</h3>
-                    <ul class="space-y-3 text-gray-300">
-                        <li class="flex items-center gap-2"><i class="fab fa-python text-blue-500 text-xl"></i> Python</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-database text-blue-600 text-xl"></i> MySQL / SQL</li>
-                         <li class="flex items-center gap-2"><i class="fab fa-node-js text-green-500 text-xl"></i> Node.js</li>
-                        <li class="flex items-center gap-2"><i class="fab fa-git-alt text-red-600 text-xl"></i> Git</li>
-                        <li class="flex items-center gap-2"><i class="fab fa-github text-purple-400 text-xl"></i> GitHub</li>
-                        <li class="flex items-center gap-2"><i class="fab fa-js-square text-yellow-400 text-xl"></i> JavaScript</li>
-                        <li class="flex items-center gap-2"><i class="fab fa-react text-blue-400 text-xl"></i> React</li>
-                    </ul>
+                <div class="glass-card rounded-xl p-6 hover:shadow-lg hover:shadow-green-900/20 transition-all">
+                    <h3 class="text-lg font-bold text-green-300 mb-4 border-b border-gray-700 pb-2">Ferramentas & Linguagens</h3>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-gray-800/50 p-2 rounded flex items-center gap-2 border border-gray-700">
+                            <i class="fab fa-python text-blue-400 text-lg"></i> <span class="text-sm">Python</span>
+                        </div>
+                        <div class="bg-gray-800/50 p-2 rounded flex items-center gap-2 border border-gray-700">
+                            <i class="fas fa-database text-blue-600 text-lg"></i> <span class="text-sm">SQL</span>
+                        </div>
+                        <div class="bg-gray-800/50 p-2 rounded flex items-center gap-2 border border-gray-700">
+                            <i class="fab fa-node-js text-green-500 text-lg"></i> <span class="text-sm">Node.js</span>
+                        </div>
+                        <div class="bg-gray-800/50 p-2 rounded flex items-center gap-2 border border-gray-700">
+                            <i class="fab fa-git-alt text-red-500 text-lg"></i> <span class="text-sm">Git</span>
+                        </div>
+                        <div class="bg-gray-800/50 p-2 rounded flex items-center gap-2 border border-gray-700 opacity-75">
+                            <i class="fab fa-js text-yellow-400 text-lg"></i> <span class="text-sm">JavaScript</span>
+                        </div>
+                        <div class="bg-gray-800/50 p-2 rounded flex items-center gap-2 border border-gray-700 opacity-75">
+                            <i class="fab fa-react text-cyan-400 text-lg"></i> <span class="text-sm">React</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="glass-card rounded-2xl shadow-xl p-6 transition-transform duration-300 hover:scale-105 hover:shadow-yellow-500/50">
-                    <h3 class="text-2xl font-semibold text-yellow-300 mb-5">Principais Qualidades</h3>
-                    <ul class="list-disc list-inside space-y-2 text-gray-300">
-                        <li>Pensamento Analítico: Capacidade de encontrar padrões em dados.</li>
-                        <li>Resolução de Problemas.</li>
-                        <li>Aprendizado Contínuo e Autodidata.</li>
-                        <li>Atenção aos Detalhes e Organização.</li>
-                        <li>Visão de Negócio: Foco em gerar valor com tecnologia.</li>
-                        <li>Adaptabilidade e Resiliência.</li>
+                <div class="glass-card rounded-xl p-6 hover:shadow-lg hover:shadow-yellow-900/20 transition-all">
+                    <h3 class="text-lg font-bold text-yellow-300 mb-4 border-b border-gray-700 pb-2">Perfil Profissional</h3>
+                    <ul class="space-y-3 text-gray-300 text-sm">
+                        <li class="flex items-start gap-2"><i class="fas fa-search text-yellow-500 mt-1"></i> <span>Pensamento Analítico</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-tools text-yellow-500 mt-1"></i> <span>Troubleshooting (Suporte)</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-book-open text-yellow-500 mt-1"></i> <span>Lifelong Learning</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-eye text-yellow-500 mt-1"></i> <span>Atenção aos Detalhes</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-briefcase text-yellow-500 mt-1"></i> <span>Visão de Negócio</span></li>
                     </ul>
                 </div>
                 
@@ -115,8 +202,8 @@
 
     </div>
     
-    <footer class="text-center text-gray-400 p-6 mt-8">
-        <p>&copy; 2025 Lorenzo Corrêa. Todos os direitos reservados.</p>
+    <footer class="text-center text-gray-500 py-8 text-sm border-t border-gray-800 mt-12 bg-gray-900/50 backdrop-blur">
+        <p>&copy; 2025 Lorenzo Corrêa. Construído com <i class="fas fa-code text-blue-500 mx-1"></i> e Dados.</p>
     </footer>
 
 </body>
