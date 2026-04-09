@@ -1,0 +1,101 @@
+body { 
+    font-family: 'Inter', sans-serif; 
+    transition: background-color 0.3s, color 0.3s;
+    
+    /* Background Padrão (Light) */
+    background-color: #f3f4f6;
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+/* Background Dark Mode */
+.dark body {
+    background-color: #0f172a; /* Slate 900 */
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+/* CLASSE GLASS-CARD */
+
+/* 1. Estilo Base (Light Mode) */
+.glass-card {
+    background: rgba(255, 255, 255, 0.85); /* Fundo Branco semitransparente */
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+/* 2. Estilo Override (Dark Mode) */
+.dark .glass-card {
+    background: rgba(30, 41, 59, 0.7) !important; /* Fundo Escuro (Slate 800) */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Cursor do Efeito Typewriter */
+.typing-cursor::after {
+    content: '|';
+    animation: blink 1s step-start infinite;
+}
+
+@keyframes blink { 
+    50% { opacity: 0; } 
+}
+
+/* No seu style.css, adicione estas classes */
+
+/* --- Efeito Neon Glow Colorido (Cores Vibrantes e Saturadas) --- */
+
+/* Efeito Glow Ciano-Neon */
+.glow-cyan {
+  box-shadow: 
+    0 5px 15px rgba(0, 0, 0, 0.5),            /* Sombra principal sutil para dar profundidade */
+    0 0 15px rgba(0, 196, 255, 0.4),          /* Glow interno ciano claro */
+    0 0 25px rgba(0, 255, 230, 0.3),          /* Glow intermediário vibrante */
+    0 0 45px rgba(78, 205, 196, 0.2);         /* Glow externo grande e difuso que "vaza" */
+}
+
+/* Efeito Glow Verde-Neon */
+.glow-green {
+  box-shadow: 
+    0 5px 15px rgba(0, 0, 0, 0.5),
+    0 0 15px rgba(135, 255, 78, 0.4),
+    0 0 25px rgba(100, 255, 130, 0.3),
+    0 0 45px rgba(135, 255, 78, 0.2);
+}
+
+/* Efeito Glow Roxo-Neon */
+.glow-purple {
+  box-shadow: 
+    0 5px 15px rgba(0, 0, 0, 0.5),
+    0 0 15px rgba(189, 78, 255, 0.4),
+    0 0 25px rgba(150, 100, 255, 0.3),
+    0 0 45px rgba(189, 78, 255, 0.2);
+}
+
+/* Efeito Glow Amarelo/Laranja-Neon (Para o Perfil Profissional) */
+.glow-yellow {
+  box-shadow: 
+    0 5px 15px rgba(0, 0, 0, 0.5),
+    0 0 15px rgba(255, 212, 78, 0.4),
+    0 0 25px rgba(255, 180, 100, 0.3),
+    0 0 45px rgba(255, 212, 78, 0.2);
+}
+
+/* --- Efeito de Interação e Glow no Hover --- */
+
+/* Efeito suave de transição para o hover */
+.card {
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Classe para aplicar efeito de elevação e neon glow verde vibrante ao hover */
+.interact-on-hover:hover {
+  transform: translateY(-5px); /* Efeito de elevação */
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.7),            /* Sombra principal mais forte */
+    0 0 25px rgba(100, 255, 130, 0.5),        /* Glow intermediário mais vibrante */
+    0 0 50px rgba(135, 255, 78, 0.35);        /* Glow externo maior e mais intenso */
+}
