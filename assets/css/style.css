@@ -1,5 +1,14 @@
-body { 
-    font-family: 'Inter', sans-serif; 
+html {
+    scroll-behavior: smooth;
+}
+
+/* Compensa a navbar fixa ao navegar pelas âncoras */
+[id] {
+    scroll-margin-top: 5rem;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
     transition: background-color 0.3s, color 0.3s;
     
     /* Background Padrão (Light) */
@@ -40,9 +49,78 @@ body {
     animation: blink 1s step-start infinite;
 }
 
-@keyframes blink { 
-    50% { opacity: 0; } 
+@keyframes blink {
+    50% { opacity: 0; }
 }
+
+/* ===================== JANELA DE TERMINAL (HERO) ===================== */
+.terminal {
+    background: #0a0e16;
+    border: 1px solid rgba(16, 185, 129, 0.25); /* emerald-500 */
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+.terminal-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: #11161f;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.term-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.terminal-title {
+    margin-left: 10px;
+    font-size: 12px;
+    color: #64748b; /* slate-500 */
+}
+
+.terminal-body {
+    padding: 22px 24px 26px;
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: #cbd5e1; /* slate-300 */
+    min-height: 320px; /* evita "pulo" de layout enquanto digita */
+}
+
+.term-line { white-space: pre-wrap; word-break: break-word; }
+.term-user { color: #34d399; }                    /* emerald-400 */
+.term-path { color: #38bdf8; }                    /* sky-400 */
+.term-sep  { color: #64748b; }                    /* slate-500 */
+.term-cmd  { color: #e2e8f0; }                    /* slate-200 */
+
+.term-name {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.9rem, 5vw, 2.9rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0.3rem 0 1rem;
+    letter-spacing: -0.02em;
+}
+
+.term-text { color: #94a3b8; margin: 0.1rem 0 1.1rem; }  /* slate-400 */
+.term-hl   { color: #34d399; font-weight: 700; }
+.term-chips {
+    color: #5eead4; /* teal-300 */
+    margin: 0.1rem 0 1.1rem;
+    font-size: 0.9rem;
+}
+
+.term-cursor {
+    color: #34d399;
+    animation: blink 1s step-start infinite;
+}
+
+/* Estado inicial das saídas antes da animação de digitação (revelado via JS) */
+.js .term-out { opacity: 0; transition: opacity 0.3s ease; }
+.js .term-out.revealed { opacity: 1; }
 
 /* No seu style.css, adicione estas classes */
 
